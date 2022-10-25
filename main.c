@@ -96,7 +96,7 @@ int main (int argc, char** argv) // argument layout "'./Big Letter' 'INPUT TEXT'
 
     if (verbose)
     {
-        printf("Generated:\n");
+        printf("Generated:\n"); // GENERATED (hopefully no pointer errors)
     }
 
     printf("\n");
@@ -110,6 +110,8 @@ int main (int argc, char** argv) // argument layout "'./Big Letter' 'INPUT TEXT'
 
         printf("\n");
     }
+
+    printf("\n");
 
     return 0;
 }
