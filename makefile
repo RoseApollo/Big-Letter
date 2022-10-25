@@ -17,6 +17,9 @@ usage:
 	echo "Optional: Verbose"
 	echo "'./Build/Big Letter' 'INPUT TEXT' 'TRUE CHAR' 'FALSE CHAR' 'v FOR VERBOSE"
 
+example:
+	"./Build/Big Letter" "Hello, World"
+
 clean:
 	echo "Cleaning build directory"
 
