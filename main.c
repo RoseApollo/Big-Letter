@@ -1,4 +1,4 @@
-// Created by Rose Apollo
+// Created by Rose Apollo ((github) AUnicornWithNoLife)
 
 #include <stdio.h>
 #include <stdbool.h>
@@ -19,7 +19,7 @@ bool isBitTrue(char val, int pos) // check if the bit from val in position pos i
 
 char* getCharFromFont(char input) // get a pointer to the relative char from the font
 {
-    return &*font8x8[(int)input];
+    return &*font8x8[(int)input]; // char can't be used to access array, so has to be cast to an int (ik i hate this too)
 }
 
 void stringToFont(char* input, int width, char output[SIZE][width])
@@ -28,7 +28,7 @@ void stringToFont(char* input, int width, char output[SIZE][width])
 
     for (int i = 0; i < length; i++) // loop through characters
     {
-        char* fontChar = getCharFromFont(*input);
+        char* fontChar = getCharFromFont(*input); // get font pointer
 
         for (int x = 0; x < SIZE; x++) // loop from top to bottom
         {
