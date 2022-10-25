@@ -1,3 +1,25 @@
+/**
+ * https://github.com/dhepper/font8x8/blob/master/font8x8_basic.h
+ * 
+ * 8x8 monochrome bitmap fonts for rendering
+ * Author: Daniel Hepper <daniel@hepper.net>
+ *
+ * License: Public Domain
+ *
+ * Based on:
+ * // Summary: font8x8.h
+ * // 8x8 monochrome bitmap fonts for rendering
+ * //
+ * // Author:
+ * //     Marcel Sondaar
+ * //     International Business Machines (public domain VGA fonts)
+ * //
+ * // License:
+ * //     Public Domain
+ *
+ * Fetched from: http://dimensionalrift.homelinux.net/combuster/mos3/?p=viewsource&file=/modules/gfx/font8_8.asm
+ **/
+
 char font8x8[128][8] = {
     { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00},   // U+0000 (nul)
     { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00},   // U+0001
