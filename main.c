@@ -1,4 +1,4 @@
-// Created by Rose Apollo ((github) AUnicornWithNoLife)
+// Created by Rose ((github) AUnicornWithNoLife)
 
 #include <stdio.h>
 #include <stdbool.h>
