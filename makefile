@@ -1,24 +1,24 @@
-build: main.c font.h
+build: main.c
 	echo "Building executable"
 	
 	mkdir -p "./Build"
 
-	cc main.c -o "./Build/Big Letter"
+	clang main.c -o "./Build/BigLetter"
 
 	echo "Finished building executable"
-	echo "Executable is located at './Build/Big Letter'"
+	echo "Executable is located at './Build/BigLetter'"
 
 usage:
-	echo "Big Letter Usage:"
-	echo "Location: ./Build/Big Letter"
+	echo "BigLetter Usage:"
+	echo "Location: ./Build/BigLetter"
 	echo "Arguments:"
 	echo "Required: Input Text"
 	echo "Optional: Replacement True and False Characters"
 	echo "Optional: Verbose"
-	echo "'./Build/Big Letter' 'INPUT TEXT' 'TRUE CHAR' 'FALSE CHAR' 'v FOR VERBOSE"
+	echo "'./Build/BigLetter' 'INPUT TEXT' 'TRUE CHAR' 'FALSE CHAR' 'v FOR VERBOSE"
 
-example:
-	"./Build/Big Letter" "Hello, World"
+example: ./build/BigLetter
+	"./Build/BigLetter" "Hello, World"
 
 clean:
 	echo "Cleaning build directory"
