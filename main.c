@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include "font8x8/font8x8.h"
+#include "carg-parse/carg-parse.h"
 
 #define SIZE 8
 
@@ -47,36 +48,44 @@ void stringToFont(char* input, int width, char output[SIZE][width])
     }
 }
 
-int main (int argc, char** argv) // argument layout "'./Big Letter' 'INPUT TEXT' 'OPTIONAL TRUE CHARACTER' 'OPTIONAL FALSE CHARACTER' 'OPTIONAL v FOR VERBOSE"
+int main (int argc, char** argv) // argument layout "'./Big Letter' 'INPUT TEXT' -trueC 'OPTIONAL TRUE CHARACTER' -falseC 'OPTIONAL FALSE CHARACTER' -v (optional VERBOSE flag)
 {
-    if (argc < 2) // requires one argument
-    {
-        printf("not enough arguments provided");
-        return -1;
-    }
+    carg_parse_data* args = carg_parse(argc, argv);
 
-    if (argc >= 3) // if last argument is 'v' enable verbose
+    for (int i = 0; i < args->lv_len; i++)
     {
-        if (argv[argc - 1][0] == 'v')
+        if (!strcmp(args->lv_labels[i], "v"))
         {
             verbose = true;
 
-            printf("VERBOSE enabled \n");
+            printf("VERBOSE ENABLED");
         }
-    }
 
-    if (argc >= 4) // replace true and false chars if present in arguments
-    {
-        trueChar = argv[2][0];
-        falseChar = argv[3][0];
-
-        if (verbose)
+        if (!strcmp(args->lv_labels[i], "trueC"))
         {
-            printf("trueChar: %c\nfalseChar: %c\n", trueChar, falseChar);
+            trueChar = args->lv_values[i][0];
+        }
+
+        if (!strcmp(args->lv_labels[i], "falseC"))
+        {
+            falseChar = args->lv_values[i][0];
         }
     }
 
-    char* inputString = argv[1];
+    char* inputString;
+
+    if (args->values_len > 0)
+    {
+        inputString = args->values[0];
+    }
+    else
+    {
+        printf("\n!!!NOT ENOUGH ARGUMNETS!!!\n\n");
+
+        return -1;
+    }
+
+    carg_parse_free(args);
 
     if (verbose)
     {
